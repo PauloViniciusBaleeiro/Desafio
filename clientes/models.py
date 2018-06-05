@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Pessoas(models.Model):
+class Pessoa(models.Model):
     SEXO = (('M', 'Masculino'),
             ('F', 'FEMININO'),
             )
