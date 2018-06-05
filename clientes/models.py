@@ -7,7 +7,7 @@ class Pessoa(models.Model):
             )
 
     nome_pessoa = models.CharField(max_length=100)
-    altura = models.DecimalField(max_digits=2, decimal_places=2)
+    altura = models.DecimalField(max_digits=3, decimal_places=2)
 #    nascimento = models.DateField(blank=True, null=True)
     idade = models.IntegerField(max_length=3)
 #   endereço = models.CharField(max_length=100, blank=True, null=True)
