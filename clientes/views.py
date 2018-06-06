@@ -1,9 +1,7 @@
 from django.shortcuts import render
 from clientes.models import Pessoa
-import csv
 
-def populateTab():
-
-
-
+def lista_Pessoas(request):
+    pessoas = Pessoa.objects.all()
+    return render(request, 'person.html', {'persons': persons})
 
