@@ -1,3 +1,9 @@
 from django.shortcuts import render
+from clientes.models import Pessoa
+import csv
 
-# Create your views here.
+def populateTab():
+
+
+
+
