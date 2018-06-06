@@ -1,4 +1,5 @@
 from django.db import models
+import csv
 
 
 class Pessoa(models.Model):
@@ -16,3 +17,18 @@ class Pessoa(models.Model):
 
     def __str__(self):
         return self.nome_pessoa
+
+    class Meta:
+        ordering = ['nome_pessoa']
+
+
+'''with open('pessoas.csv', 'r') as csv_file:
+    reader = csv.DictReader(csv_file, delimiter=';')
+
+    for row in reader:
+        c = Pessoa()
+        c.nome_pessoa = row['Nome']
+        c.altura = row['Altura']
+        c.idade = row['Idade']
+        c.cidade = row['Cidade']
+        c.save()'''
