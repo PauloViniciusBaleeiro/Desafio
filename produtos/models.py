@@ -9,3 +9,5 @@ class Produto(models.Model):
         return self.nome_produto
 
 
+    class Meta:
+        ordering = ['nome_produto']

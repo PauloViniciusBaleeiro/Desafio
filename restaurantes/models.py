@@ -11,3 +11,6 @@ class Restaurante(models.Model):
     def __str__(self):
         return self.nome_restaurante
 
+
+    class Meta:
+        ordering = ['nome_restaurante']
