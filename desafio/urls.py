@@ -19,7 +19,7 @@ from clientes.views import lista_pessoas
 from clientes.views import pessoas_dia
 from clientes.views import pessoas_mes
 from clientes.views import pessoas_ano
-from clientes.views import pessoas_dia2
+from pedidos.views import localiza_pedidos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +27,5 @@ urlpatterns = [
     path('pdia/<str:dia>', pessoas_dia),
     path('pmes/<int:month>', pessoas_mes),
     path('pano/<int:year>', pessoas_ano),
+    path('ped_pessoas/<int:id>', localiza_pedidos),
 ]
