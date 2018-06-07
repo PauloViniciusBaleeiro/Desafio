@@ -16,8 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from clientes.views import lista_Pessoas
+from clientes.views import pessoasDia
+from clientes.views import pessoasMes
+from clientes.views import pessoasAno
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('lista/', lista_Pessoas),
+    path('pdias/<int:year>/<int:month>/<int:day>', pessoasDia),
+    path('pmes/<int:month>', pessoasMes),
+    path('pano/<int:year>', pessoasAno),
 ]
