@@ -15,15 +15,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from clientes.views import lista_Pessoas
-from clientes.views import pessoasDia
-from clientes.views import pessoasMes
-from clientes.views import pessoasAno
+from clientes.views import lista_pessoas
+from clientes.views import pessoas_dia
+from clientes.views import pessoas_mes
+from clientes.views import pessoas_ano
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('lista/', lista_Pessoas),
-    path('pdias/<int:year>/<int:month>/<int:day>', pessoasDia),
-    path('pmes/<int:month>', pessoasMes),
-    path('pano/<int:year>', pessoasAno),
+    path('lista/', lista_pessoas),
+    path('pdia/<int:year>/<int:month>/<int:day>', pessoasDia),
+    path('pdia/<str:dia>', pessoas_dia),
+    path('pmes/<int:month>', pessoas_mes),
+    path('pano/<int:year>', pessoas_ano),
 ]
