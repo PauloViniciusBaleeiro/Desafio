@@ -8,15 +8,16 @@
     <title>Document</title>
 </head>
 <body>
-
-
     <ul>
-        {% for pessoa in pessoas %}
+
+        <p>Listagem de pedidos</p>
+
+        {% for l in lista %}
         <li>
-            {{pessoa.nome_pessoa}}
+            {{l.numero}}
         </li>
         {% endfor %}
-    </ul>
 
+    </ul>
 </body>
 </html>

@@ -15,9 +15,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from clientes.views import lista_Pessoas
+from clientes.views import lista_pessoas
+from clientes.views import pessoas_dia
+from clientes.views import pessoas_mes
+from clientes.views import pessoas_ano
+from pedidos.views import localiza_pedidos
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('lista/', lista_Pessoas),
+    path('lista/', lista_pessoas),
+    path('pdia/<str:dia>', pessoas_dia),
+    path('pmes/<int:month>', pessoas_mes),
+    path('pano/<int:year>', pessoas_ano),
+    path('ped_pessoas/<int:id>', localiza_pedidos),
 ]
