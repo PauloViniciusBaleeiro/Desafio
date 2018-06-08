@@ -20,6 +20,8 @@ from clientes.views import pessoas_dia
 from clientes.views import pessoas_mes
 from clientes.views import pessoas_ano
 from pedidos.views import localiza_pedidos
+from pedidos.views import pedidos_restaurantes
+from restaurantes.views import lista_restaurante
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +30,6 @@ urlpatterns = [
     path('pmes/<int:month>', pessoas_mes),
     path('pano/<int:year>', pessoas_ano),
     path('ped_pessoas/<int:id>', localiza_pedidos),
+    path('ped_rest/<int:id>', pedidos_restaurantes),
+    path('rest/', lista_restaurante),
 ]
