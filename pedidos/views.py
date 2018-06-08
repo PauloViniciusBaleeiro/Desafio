@@ -5,21 +5,21 @@ from django.http import HttpResponse
 
 
 def localiza_pedidos(request, id):
-    pessoa = Pessoa.objects.get(pk=id)
+    try:
+        pessoa = Pessoa.objects.get(pk=id)
+    except:
+        pass
 
-    if pessoa is not None:
+    if pessoa:
 
-        #pedidos = Pedido.objects.get(pessoas=id)
+
         lista=[]
         pedidos = Pedido.objects.filter(pessoas=id)
         for pedido in pedidos:
             lista.append(pedido)
-        #pedidos = Pedido.objects.all()
-        #return HttpResponse(pessoa.nome_pessoa + " possui " + str(len(pedidos)) + " pedidos registrados")
-        return render(request, 'pedidos.html', {'lista': lista})
-        '''for p in pedidos:
-            return HttpResponse (p.numero)'''
+        
+        return render(request, 'pedidos.html', {'lista': lista, 'pessoa': pessoa})
+    else:
+        return render(request, 'pedidos.html', {'lista': None, 'pessoa': 'nenhuma pessoa encontrada'})
 
-    '''else:
 
-        return HttpResponse("Id informado inválido, tente novamente")'''
