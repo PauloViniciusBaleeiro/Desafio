@@ -2,7 +2,6 @@ from django.shortcuts import render, get_object_or_404
 from clientes.models import Pessoa
 from .models import Pedido
 from restaurantes.models import Restaurante
-#from django.http import HttpResponse
 
 
 def localiza_pedidos(request, id):
@@ -46,7 +45,23 @@ def pedidos_restaurantes(request, id):
         return render(request, 'ped_rest.html', {'lista' : None, 'restaurante': "Nenhum restaurante encontrado, "
                                                                                  "tente novamente"})
 
-def receitas(request):
-    listas = []
-    listas = Pedido.objects.all()
-    return render(request, 'receitas.html', {'listas' : listas})
+def receitas(request, id):
+    restaurante = Restaurante.objects.get(id=id)
+
+
+    if restaurante is not None:
+
+        lista = []
+        pedidos = Pedido.objects.filter(produtos__restaurante=id)
+        valor = 0
+
+        for pedido in pedidos:
+            valor += pedido.produtos.valor
+
+        for pedido in pedidos:
+            lista.append(pedido)
+
+        return render(request, 'receitas.html', {'lista': lista, 'restaurante': restaurante, 'valor': valor})
+
+    else:
+        return render(request, 'receitas.html', {'lista': None, 'restaurante': 'Nenhum restaurante encontrado'})

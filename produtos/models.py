@@ -9,7 +9,7 @@ class Produto(models.Model):
     valor = models.DecimalField(max_digits=6, decimal_places=2, default=0.00)
 
     def __str__(self):
-        return self.nome_produto
+        return self.descricao
 
 
     class Meta:
