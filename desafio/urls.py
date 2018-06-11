@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+
 from clientes.views import lista_pessoas
+from clientes.views import pessoas_ano
 from clientes.views import pessoas_dia
 from clientes.views import pessoas_mes
-from clientes.views import pessoas_ano
 from pedidos.views import localiza_pedidos
 from pedidos.views import pedidos_restaurantes
+from pedidos.views import receitas
 from restaurantes.views import lista_restaurante
 
 urlpatterns = [
@@ -32,4 +34,5 @@ urlpatterns = [
     path('ped_pessoas/<int:id>', localiza_pedidos),
     path('ped_rest/<int:id>', pedidos_restaurantes),
     path('rest/', lista_restaurante),
+    path('receitas/', receitas),
 ]
