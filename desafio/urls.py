@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from clientes.views import (lista_pessoas, pessoas_dia, pessoas_ano, pessoas_mes)
-from pedidos.views import (localiza_pedidos, pedidos_restaurantes, receitas)
+from pedidos.views import (localiza_pedidos, pedidos_restaurantes, receitas, mktshare)
 from restaurantes.views import lista_restaurante
 
 urlpatterns = [
@@ -30,4 +30,5 @@ urlpatterns = [
     path('ped_rest/<int:id>', pedidos_restaurantes),
     path('rest/', lista_restaurante),
     path('receitas/<int:id>', receitas),
+    path('mktshr/', mktshare),
 ]

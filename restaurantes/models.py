@@ -12,4 +12,4 @@ class Restaurante(models.Model):
         return self.nome_restaurante
 
     class Meta:
-        ordering = ['nome_restaurante']
+        ordering = ['id']
