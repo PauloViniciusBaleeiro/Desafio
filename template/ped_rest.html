@@ -11,7 +11,7 @@
     <ul><p> Lista de pedidos do restaurante {{restaurante.nome_restaurante}}</p>
         {% for l in lista %}
         <li>
-           {{l.numero}}
+            <a href="http://localhost:8000/admin/pedidos/pedido/{{l}}/change/">{{l.id}} </a>
         </li>
         {% endfor %}
     </ul>

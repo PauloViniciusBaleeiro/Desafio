@@ -14,7 +14,7 @@
 
         {% for l in lista %}
         <li>
-            {{l.numero}}
+            <a href="http://localhost:8000/admin/pedidos/pedido/{{l.id}}/change/">{{l.id}}</a>
         </li>
         {% endfor %}
 

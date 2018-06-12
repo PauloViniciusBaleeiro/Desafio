@@ -10,7 +10,8 @@
 <body>
     <ul><p> Receitas do Restaurante {{ restaurante.nome_restaurante }}</p>
         {% for l in lista %}
-        <li>Pedido número {{l}}, {{l.produtos}}, no valor de R$ {{l.produtos.valor}}</li>
+        <li>Pedido número <a href="http://localhost:8000/admin/pedidos/pedido/{{l}}/change/"> {{l}}</a>,
+            {{l.produtos}}, no valor de R$ {{l.produtos.valor}}</li>
         {% endfor %}
     </ul>
     <p> Receitas totais = R$ {{valor}}</p>

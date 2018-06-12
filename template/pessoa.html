@@ -13,7 +13,7 @@
     <ul>
         {% for pessoa in pessoas %}
         <li>
-            {{pessoa.nome_pessoa}}
+            <a href="http://localhost:8000/admin/clientes/pessoa/{{pessoa.id}}/change">{{pessoa.nome_pessoa}}</a>
         </li>
         {% endfor %}
     </ul>
