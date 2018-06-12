@@ -10,4 +10,4 @@ for r in reader:
     pd = r[2]
     produto = Produto.objects.get(pk=pd)
     p = Pedido(pessoas=person, produtos=produto, data=dt)
-    p.save()
+    git checkoutp.save()
