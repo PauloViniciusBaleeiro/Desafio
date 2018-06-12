@@ -1,0 +1,13 @@
+comandos de importação do arquivo csv
+
+reader = csv.reader(open('new_pedidos.csv', 'r'), delimiter=',')
+next(reader)
+['Pessoa', 'Dia', 'Comida']
+for r in reader:
+    ps = r[0]
+    person = Pessoa.objects.get(pk=ps)
+    dt = r[1]
+    pd = r[2]
+    produto = Produto.objects.get(pk=pd)
+    p = Pedido(pessoas=person, produtos=produto, data=dt)
+    p.save()
