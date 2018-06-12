@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<h2 align="center"> Marketshare</h2>
+    <h3> O valor total dos pedidos é de R$ {{valor}}, sendo a participação de cada restaurante:</h3>
+    <ul>
+        {% for rest, perc, vlr in lista_geral %}
+
+        <li> {{ rest }} totalizou R$ {{vlr}} , sendo {{ perc|floatformat:'2' }} % de participação</li>
+
+        {% endfor %}
+
+    </ul>
+</body>
+</html>
