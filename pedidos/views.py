@@ -3,8 +3,14 @@ from clientes.models import Pessoa
 from .models import Pedido
 from restaurantes.models import Restaurante
 from django.db.models import Sum
+from django.contrib.auth.decorators import login_required
 
+@login_required
+def lista_pedidos(request):
+    pedidos = Pedido.objects.all()
+    return render(request, 'listapedidos.html', {'pedidos': pedidos})
 
+@login_required
 def localiza_pedidos(request, id):
     try:
         pessoa = Pessoa.objects.get(pk=id)
@@ -23,6 +29,7 @@ def localiza_pedidos(request, id):
         return render(request, 'pedidos.html', {'lista': None, 'pessoa': 'nenhuma pessoa encontrada'})
 
 
+@login_required
 def pedidos_restaurantes(request, id):
     try:
         restaurante = Restaurante.objects.get(id=id)
@@ -45,7 +52,7 @@ def pedidos_restaurantes(request, id):
         return render(request, 'ped_rest.html', {'lista': None, 'restaurante': "Nenhum restaurante encontrado, "
                                                                                "tente novamente"})
 
-
+@login_required
 def receitas(request, id):
     restaurante = Restaurante.objects.get(id=id)
 
@@ -67,6 +74,7 @@ def receitas(request, id):
         return render(request, 'receitas.html', {'lista': None, 'restaurante': 'Nenhum restaurante encontrado'})
 
 
+@login_required
 def mktshare_qtd(request):
     restaurantes = Restaurante.objects.all()
     pedidos = Pedido.objects.count()
@@ -100,7 +108,7 @@ def mktshare_qtd(request):
                                            'restaurantes': restaurantes, 'lista_perc': lista_perc,
                                            'lista_geral': zip(lista_rest, lista_perc)})
 
-
+@login_required
 def mktshr_vlr(request):
     restaurantes = Restaurante.objects.all()
     pedidos = Pedido.objects.aggregate(total=Sum('produtos__valor'))
