@@ -14,10 +14,12 @@
 
         {% for restaurante in restaurantes %}
         <li>
-            {{restaurante.nome_restaurante}}
+            <a href="http://localhost:8000/admin/restaurantes/restaurante/{{restaurante.id}}/change/"
+            >{{restaurante.nome_restaurante}}</a>
         </li>
         {% endfor %}
     </ul>
-
+    <a href="javascript:window.history.go(-1)">Voltar</a>
+<footer> <p align="center">Paulo Vinícius® 2018 - Todos os direitos reservados. </p> </footer>
 </body>
 </html>

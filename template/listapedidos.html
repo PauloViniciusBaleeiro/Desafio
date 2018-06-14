@@ -8,17 +8,15 @@
     <title>Document</title>
 </head>
 <body>
-    <h2 align="center"> Marketshare</h2>
-    <h3> Do total de {{pedidos}} pedido(s), a participação de cada restaurante é:</h3>
-    <ul>
-        {% for rest, perc in lista_geral %}
-
-        <li> {{ rest }} possui {{ perc|floatformat:'2' }} % de participação</li>
-
-        {% endfor %}
-
+    <ul><h2>Lista de pedidos registrados</h2>
+    {% for p in pedidos %}
+    <li>
+        <a href="http://localhost:8000/admin/pedidos/pedido/{{p.id}}/change/"> {{p.id}}</a>
+    </li>
+    {% endfor %}
     </ul>
-    <a href="javascript:window.history.go(-1)">Voltar</a>
+<footer>
+    <p align="center" data-background-color="black"> Todos os direitos reservados. Paulo Vinícius® 2018</p>
 <footer> <p align="center">Paulo Vinícius® 2018 - Todos os direitos reservados. </p> </footer>
 </body>
 </html>

@@ -14,10 +14,11 @@
 
         {% for l in lista %}
         <li>
-            {{l.numero}}
+            <a href="http://localhost:8000/admin/pedidos/pedido/{{l.id}}/change/">{{l.id}}</a>
         </li>
         {% endfor %}
 
     </ul>
+<footer> <p align="center">Paulo Vinícius® 2018 - Todos os direitos reservados. </p> </footer>
 </body>
 </html>

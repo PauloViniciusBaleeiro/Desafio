@@ -3,8 +3,18 @@ from clientes.models import Pessoa
 from .models import Pedido
 from restaurantes.models import Restaurante
 from django.db.models import Sum
+from django.contrib.auth.decorators import login_required
 
 
+# Função que retorna a quantidade total de pedidos
+@login_required
+def lista_pedidos(request):
+    pedidos = Pedido.objects.all()
+    return render(request, 'listapedidos.html', {'pedidos': pedidos})
+
+
+# Função para retornar a quantidade pedidos filtrados por pessoa
+@login_required
 def localiza_pedidos(request, id):
     try:
         pessoa = Pessoa.objects.get(pk=id)
@@ -23,6 +33,8 @@ def localiza_pedidos(request, id):
         return render(request, 'pedidos.html', {'lista': None, 'pessoa': 'nenhuma pessoa encontrada'})
 
 
+# Função que retorna a quantidade de pedidos filtrados por restaurante. Recebe o id do restaurante via request.
+@login_required
 def pedidos_restaurantes(request, id):
     try:
         restaurante = Restaurante.objects.get(id=id)
@@ -46,6 +58,8 @@ def pedidos_restaurantes(request, id):
                                                                                "tente novamente"})
 
 
+# Função que calcula e retorna as receitas filtradas por restaurante recebendo o id deste pelo request
+@login_required
 def receitas(request, id):
     restaurante = Restaurante.objects.get(id=id)
 
@@ -67,6 +81,8 @@ def receitas(request, id):
         return render(request, 'receitas.html', {'lista': None, 'restaurante': 'Nenhum restaurante encontrado'})
 
 
+# Função que calcula e retorna o Marketshar em função da quantidade de pedidos.
+@login_required
 def mktshare_qtd(request):
     restaurantes = Restaurante.objects.all()
     pedidos = Pedido.objects.count()
@@ -101,6 +117,8 @@ def mktshare_qtd(request):
                                            'lista_geral': zip(lista_rest, lista_perc)})
 
 
+# Função que calcula o Marketshare em função das receitas
+@login_required
 def mktshr_vlr(request):
     restaurantes = Restaurante.objects.all()
     pedidos = Pedido.objects.aggregate(total=Sum('produtos__valor'))

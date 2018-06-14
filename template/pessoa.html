@@ -13,10 +13,11 @@
     <ul>
         {% for pessoa in pessoas %}
         <li>
-            {{pessoa.nome_pessoa}}
+            <a href="http://localhost:8000/admin/clientes/pessoa/{{pessoa.id}}/change">{{pessoa.nome_pessoa}}</a>
         </li>
         {% endfor %}
     </ul>
-
+    <a href="javascript:window.history.go(-1)">Voltar</a>
+<footer> <p align="center">Paulo Vinícius® 2018 - Todos os direitos reservados. </p> </footer>
 </body>
 </html>
