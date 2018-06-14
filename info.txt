@@ -1,0 +1,2 @@
+superuser : paulo
+password: iniciais + mês/ano de entrada na Birmind
