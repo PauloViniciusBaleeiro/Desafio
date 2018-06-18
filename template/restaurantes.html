@@ -14,8 +14,7 @@
 
         {% for restaurante in restaurantes %}
         <li>
-            <a href="http://localhost:8000/admin/restaurantes/restaurante/{{restaurante.id}}/change/"
-            >{{restaurante.nome_restaurante}}</a>
+            <a href="{% url 'rest_update' restaurante.id %}">{{restaurante.nome_restaurante}}</a>
         </li>
         {% endfor %}
     </ul>
