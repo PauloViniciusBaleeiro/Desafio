@@ -12,7 +12,7 @@
     <ul><h2>Lista de pedidos registrados</h2>
     {% for p in pedidos %}
     <li>
-        <a href="http://localhost:8000/admin/pedidos/pedido/{{p.id}}/change/"> {{p.id}}</a>
+        <a href="{% url 'ped_update' p.id %}"> {{p.id}}</a>
     </li>
     {% endfor %}
     </ul>
