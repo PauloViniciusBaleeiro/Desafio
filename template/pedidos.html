@@ -14,7 +14,7 @@
 
         {% for l in lista %}
         <li>
-            <a href="{% urls 'ped_update' l.id %}">{{l.id}}</a>
+            <a href="{% url 'ped_update' l.id %}">{{l.id}}</a>
         </li>
         {% endfor %}
 
