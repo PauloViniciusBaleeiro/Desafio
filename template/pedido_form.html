@@ -8,17 +8,14 @@
     <title>Document</title>
 </head>
 <body>
-
-    <ul>
-        <h2>Lista de restaurantes cadastrados</h2>
-
-        {% for restaurante in restaurantes %}
-        <li>
-            <a href="{% url 'rest_update' restaurante.id %}">{{restaurante.nome_restaurante}}</a>
-        </li>
-        {% endfor %}
-    </ul>
+    <h1>Alterar pedido {{id}}</h1>
+    <br>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Salvar</button>
+    </form>
     <a href="javascript:window.history.go(-1)">Voltar</a>
-<footer> <p align="center">Paulo Vinícius® 2018 - Todos os direitos reservados. </p> </footer>
+    <footer> <p align="center">Paulo Vinícius® 2018 - Todos os direitos reservados. </p> </footer>
 </body>
 </html>

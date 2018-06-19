@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from clientes.views import (lista_pessoas, pessoas_dia, pessoas_ano, pessoas_mes)
-from pedidos.views import (localiza_pedidos, pedidos_restaurantes, receitas, mktshare_qtd, mktshr_vlr, lista_pedidos)
-from restaurantes.views import lista_restaurante
+from clientes.views import (lista_pessoas, pessoas_dia, pessoas_ano, pessoas_mes, pessoas_alterar)
+from pedidos.views import (localiza_pedidos, pedidos_restaurantes, receitas, mktshare_qtd, mktshr_vlr, lista_pedidos,
+                           pedidos_atualizar)
+from restaurantes.views import lista_restaurante, atualiza_restaurante
 from home import urls as home_urls
 from django.contrib.auth import views as auth_views
 
@@ -37,4 +38,7 @@ urlpatterns = [
     path('mktshrqtd/', mktshare_qtd, name="mktshrqtd"),
     path('mktshrvlr/', mktshr_vlr, name='mktshrvlr'),
     path('listaped/', lista_pedidos, name='listapedidos'),
+    path('atualiza_ped/<int:id>/', pedidos_atualizar, name='ped_update'),
+    path('atualiza_pes/<int:id>/', pessoas_alterar, name='pes_update'),
+    path('atualiza_rest/<int:id>/', atualiza_restaurante, name='rest_update'),
 ]

@@ -1,6 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from clientes.models import Pessoa
 from .models import Pedido
+from .forms import PedidoForm
 from restaurantes.models import Restaurante
 from django.db.models import Sum
 from django.contrib.auth.decorators import login_required
@@ -150,3 +151,13 @@ def mktshr_vlr(request):
                                               'restaurantes': restaurantes, 'lista_perc': lista_perc,
                                               'lista_geral': zip(lista_rest, lista_perc, lista_vlr),
                                               'lista_valor': lista_vlr})
+
+@login_required
+def pedidos_atualizar(request, id):
+    pedido = get_object_or_404(Pedido, pk=id)
+    form = PedidoForm(request.POST or None, instance=pedido)
+
+    if form.is_valid():
+        form.save()
+        return redirect('listapedidos')
+    return render(request, 'pedido_form.html', {'form': form, 'id': id})

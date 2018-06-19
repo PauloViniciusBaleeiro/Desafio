@@ -8,12 +8,10 @@
     <title>Document</title>
 </head>
 <body>
-
-
     <ul>
         {% for pessoa in pessoas %}
         <li>
-            <a href="http://localhost:8000/admin/clientes/pessoa/{{pessoa.id}}/change">{{pessoa.nome_pessoa}}</a>
+            <a href="{% url 'pes_update' pessoa.id %}">{{pessoa.nome_pessoa}}</a>
         </li>
         {% endfor %}
     </ul>
